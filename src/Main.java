@@ -5,8 +5,8 @@ public class Main {
         Robot robot1 = new Robot();
         robot1.x = 0;
         robot1.y = 0;
-        robot1.direction = Direction.UP;
-        moveRobot(robot1, -2, 1);
+        robot1.direction = Direction.DOWN;
+        moveRobot(robot1, 10, 12);
         System.out.println("x: " + robot1.getX());
         System.out.println("y: " + robot1.getY());
         robot1.getDirection();
@@ -19,14 +19,14 @@ public class Main {
 
         if ((robot.getX() <= toX) && (robot.getY() <= toY)) { //1
 
-            if (robot.direction == Direction.DOWN) {
+            if (robot.getDirection() == Direction.DOWN) {
                 robot.turnRight();
                 robot.turnRight();
             }
-            if (robot.direction == Direction.RIGHT) {
+            if (robot.getDirection() == Direction.RIGHT) {
                 robot.turnLeft();
             }
-            if (robot.direction == Direction.LEFT) {
+            if (robot.getDirection() == Direction.LEFT) {
                 robot.turnRight();
             }
 
@@ -39,17 +39,18 @@ public class Main {
             for (int i = 0; i < forwardX; i++) {
                 robot.stepForward();
             }
+            return;
         } //1
 
         if ((robot.getX() <= toX) && (robot.getY() >= toY)) { //2
-            if (robot.direction == Direction.UP) {
+            if (robot.getDirection() == Direction.UP) {
                 robot.turnRight();
                 robot.turnRight();
             }
-            if (robot.direction == Direction.RIGHT) {
+            if (robot.getDirection() == Direction.RIGHT) {
                 robot.turnRight();
             }
-            if (robot.direction == Direction.LEFT) {
+            if (robot.getDirection() == Direction.LEFT) {
                 robot.turnLeft();
             }
 
@@ -60,17 +61,18 @@ public class Main {
             for (int i = 0; i < forwardX; i++) {
                 robot.stepForward();
             }
+            return;
         } //2
 
         if ((robot.getX() >= toX) && (robot.getY() >= toY)) {//3
-            if (robot.direction == Direction.UP) {
+            if (robot.getDirection() == Direction.UP) {
                 robot.turnRight();
                 robot.turnRight();
             }
-            if (robot.direction == Direction.RIGHT) {
+            if (robot.getDirection() == Direction.RIGHT) {
                 robot.turnRight();
             }
-            if (robot.direction == Direction.LEFT) {
+            if (robot.getDirection() == Direction.LEFT) {
                 robot.turnLeft();
             }
 
@@ -82,14 +84,15 @@ public class Main {
             for (int i = 0; i < -forwardX; i++) {
                 robot.stepForward();
             }
+            return;
         }//3
         if ((robot.getX() >= toX) && (robot.getY() <= toY)) {//4
-            if (robot.direction == Direction.DOWN) {
+            if (robot.getDirection() == Direction.DOWN) {
                 robot.turnRight();
                 robot.turnRight();
-            } else if (robot.direction == Direction.RIGHT) {
+            } else if (robot.getDirection() == Direction.RIGHT) {
                 robot.turnLeft();
-            } else if (robot.direction == Direction.LEFT) {
+            } else if (robot.getDirection() == Direction.LEFT) {
                 robot.turnRight();
             }
             for (int i = 0; i < forwardY; i++) {
@@ -100,6 +103,7 @@ public class Main {
             for (int i = 0; i < -forwardX; i++) {
                 robot.stepForward();
             }
+            return;
 
         }//4
     }
